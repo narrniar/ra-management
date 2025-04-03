@@ -1,6 +1,7 @@
 package com.example.ra.web.Controllers;
 
 import com.example.ra.web.DTO.UserDto;
+import com.example.ra.web.errors.UserAlreadyExistException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.security.core.userdetails.User;
@@ -23,7 +24,7 @@ public class RegistrationController {
         return "registration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/user/registration")
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") @Valid UserDto userDto,
             HttpServletRequest request,
@@ -38,4 +39,3 @@ public class RegistrationController {
 
         // rest of the implementation
     }
-}
