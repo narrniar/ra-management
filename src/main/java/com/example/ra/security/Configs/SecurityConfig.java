@@ -1,4 +1,4 @@
-package com.example.ra.security;
+package com.example.ra.security.Configs;
 
 
 import org.springframework.context.annotation.Bean;

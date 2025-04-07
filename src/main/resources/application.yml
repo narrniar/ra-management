@@ -1,0 +1,19 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: jdbc:postgresql://keycloak:5432/ra
+    username: narrniar
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    show-sql: true
+
+jwt:
+  secret: ${JWT_SECRET:R1BYcTVXVGNDU2JmWHVnZ1lnN0FKeGR3cU1RUU45QXV4SDJONFZ3ckhwS1N0ZjNCYVkzZ0F4RVBSS1UzRENwRw==}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+
