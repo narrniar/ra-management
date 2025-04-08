@@ -15,5 +15,7 @@ spring:
 jwt:
   secret: ${JWT_SECRET:R1BYcTVXVGNDU2JmWHVnZ1lnN0FKeGR3cU1RUU45QXV4SDJONFZ3ckhwS1N0ZjNCYVkzZ0F4RVBSS1UzRENwRw==}
   expiration: ${JWT_EXPIRATION:86400000}
+  refresh-token:
+    expiration: 604800000 # 7 days
 
 
