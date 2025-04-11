@@ -36,7 +36,6 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-
     private Role role;
 
 
@@ -44,11 +43,6 @@ public class User {
     private List<Token> tokens;
 
 
-//    // Additional fields for user management
-//    private boolean enabled;
-//
-//    private boolean isUsing2FA;
-//
-//    private String secret;
+
 
 }

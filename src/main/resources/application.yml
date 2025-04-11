@@ -3,12 +3,12 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://keycloak:5432/ra
-    username: narrniar
-    password: test
+    url: jdbc:postgresql://localhost:5435/ra
+    username: root
+    password: root
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     database: postgresql
     show-sql: true
 

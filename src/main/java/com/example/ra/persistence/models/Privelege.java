@@ -3,7 +3,7 @@ package com.example.ra.persistence.models;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@Getter
 public enum Privelege {
 
     ADMIN_READ("admin:read"),
@@ -17,6 +17,13 @@ public enum Privelege {
 
     ;
 
+    Privelege(String privelege) {
+        this.privelege = privelege;
+    }
     @Getter
-    private final String permission;
+    private final String privelege;
+
+    public String getPrivelege() {
+        return privelege;
+    }
 }

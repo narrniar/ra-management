@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.example.ra.persistence.models.Privelege.*;
-
+@Getter
 @RequiredArgsConstructor
 public enum Role {
 
@@ -29,7 +29,7 @@ public enum Role {
                     MANAGER_CREATE
             )
     ),
-    MANAGER(
+    RA(
             Set.of(
                     MANAGER_READ,
                     MANAGER_UPDATE,
@@ -40,13 +40,13 @@ public enum Role {
 
     ;
 
-    @Getter
+
     private final Set<Privelege> priveleges;
 
     public List<SimpleGrantedAuthority> getAuthorities() {
-        var authorities = getPriveleges()
+        var authorities = priveleges
                 .stream()
-                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
+                .map(permission -> new SimpleGrantedAuthority(permission.getPrivelege()))
                 .collect(Collectors.toList());
         authorities.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
         return authorities;

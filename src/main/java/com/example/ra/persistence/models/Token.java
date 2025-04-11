@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -22,13 +24,16 @@ public class Token {
     public String token;
 
     @Enumerated(EnumType.STRING)
-    public TokenType tokenType = TokenType.BEARER;
-
-    public boolean revoked;
-
-    public boolean expired;
+    public TokenType tokenType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     public User user;
+
+    @Column(nullable = false)
+    private Instant  expiresAt;
+
+    public boolean isExpired() {
+        return Instant.now().isAfter(expiresAt);
+    }
 }

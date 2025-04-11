@@ -2,6 +2,7 @@ package com.example.ra.security.jwt;
 
 import com.example.ra.persistence.models.User;
 import com.example.ra.security.CustomUserDetails;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,12 +13,15 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import com.example.ra.persistence.models.TokenType;
 
 import java.security.Key;
+import java.time.Instant;
 import java.util.Date;
 import java.util.function.Function;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtService.class);
@@ -25,13 +29,11 @@ public class JwtService {
     @Value("${jwt.secret}")
     private String jwtSecret;
 
-    @Value("${jwt.expiration}")
-    private int jwtExpirationMs;
 
-    @Value("${jwt.refresh-token.expiration}")
-    private int jwtRefreshTokenMS;
 
-//    CustomUserDetials = UserDetails becuase of auto integration
+
+
+    //    CustomUserDetials = UserDetails becuase of auto integration
     public String generateJwtToken(Authentication authentication) {
 
         CustomUserDetails userPrincipal = (CustomUserDetails) authentication.getPrincipal();
@@ -39,7 +41,7 @@ public class JwtService {
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
+                .setExpiration(Date.from(calculateExpirationDate(TokenType.ACCESS)))
                 .signWith(key(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -50,7 +52,7 @@ public class JwtService {
         return Jwts.builder()
                 .setSubject((userPrincipal.getEmail()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
+                .setExpiration(Date.from(calculateExpirationDate(TokenType.ACCESS)))
                 .signWith(key(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -59,7 +61,7 @@ public class JwtService {
         return Jwts.builder()
                 .setSubject(userDetails.getEmail())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + jwtRefreshTokenMS))
+                .setExpiration(Date.from(calculateExpirationDate(TokenType.REFRESH)))
                 .signWith(key(), SignatureAlgorithm.HS256)
                 .compact();
 
@@ -120,6 +122,20 @@ public class JwtService {
 
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
+    }
+
+    public Instant calculateExpirationDate(TokenType tokenType) {
+        Instant now = Instant.now();
+        return switch (tokenType) {
+            case ACCESS -> now.plusSeconds(30 * 60); // 30 minutes
+            case REFRESH -> now.plusSeconds(7 * 24 * 60 * 60); // 7 days
+            case PASSWORD_RESET -> now.plusSeconds(60 * 60); // 1 hour
+            case EMAIL_VERIFICATION -> now.plusSeconds(24 * 60 * 60); // 24 hours
+            case TWO_FACTOR -> now.plusSeconds(10 * 60); // 10 minutes
+            case API_KEY -> now.plusSeconds(30 * 24 * 60 * 60); // 30 days
+            case DEVICE_REGISTRATION -> now.plusSeconds(48 * 60 * 60); // 48 hours
+            case SESSION -> now.plusSeconds(24 * 60 * 60); // 24 hours
+        };
     }
 
 }

@@ -1,6 +1,9 @@
-package com.example.ra.security.Services;
+package com.example.ra.security.Authentication;
 
 import com.example.ra.persistence.dao.TokenRepository;
+import com.example.ra.persistence.dao.UserRepository;
+import com.example.ra.persistence.models.User;
+import com.example.ra.security.jwt.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +17,8 @@ import org.springframework.stereotype.Service;
 public class LogoutService implements LogoutHandler {
 
     private final TokenRepository tokenRepository;
+    private final UserRepository userRepository;
+    private final JwtService jwtService;
 
     @Override
     public void logout(
@@ -27,13 +32,10 @@ public class LogoutService implements LogoutHandler {
             return;
         }
         jwt = authHeader.substring(7);
-        var storedToken = tokenRepository.findByToken(jwt)
-                .orElse(null);
-        if (storedToken != null) {
-            storedToken.setExpired(true);
-            storedToken.setRevoked(true);
-            tokenRepository.save(storedToken);
-            SecurityContextHolder.clearContext();
-        }
+
+        User user = userRepository.findByEmail(jwtService.extractUsername(jwt));
+        tokenRepository.deleteByUser(user);
+        SecurityContextHolder.clearContext();
+
     }
 }

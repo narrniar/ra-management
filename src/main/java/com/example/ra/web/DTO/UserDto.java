@@ -1,5 +1,6 @@
 package com.example.ra.web.DTO;
 
+import com.example.ra.persistence.models.Role;
 import com.example.ra.web.Validation.PasswordMatches;
 import com.example.ra.web.Validation.ValidEmail;
 import jakarta.validation.constraints.NotEmpty;
@@ -30,4 +31,6 @@ public class UserDto {
     @NotEmpty
     @ValidEmail
     private String email;
+
+    private Role role;
 }

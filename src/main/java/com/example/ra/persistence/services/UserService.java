@@ -14,9 +14,10 @@ public class UserService {
 
     private final TokenRepository tokenRepository;
     private final UserRepository userRepository;
+
+
     public User getUser(final String JwtToken) {
-        final Token token = tokenRepository.findByToken(JwtToken)
-                .orElse(null);
+        final Token token = tokenRepository.findByToken(JwtToken);
         if (token != null) {
             return token.getUser();
         }
@@ -24,11 +25,8 @@ public class UserService {
     }
 
     public void deleteUser(final User user) {
-        final Token JwtToken = tokenRepository.findByUser(user);
 
-        if (JwtToken != null) {
-            tokenRepository.delete(JwtToken);
-        }
+        tokenRepository.deleteByUser(user);
 
         userRepository.delete(user);
 
