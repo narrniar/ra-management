@@ -7,6 +7,7 @@ import com.example.ra.persistence.models.Token;
 import com.example.ra.persistence.models.TokenType;
 import com.example.ra.persistence.models.User;
 import com.example.ra.persistence.services.TokenService;
+import com.example.ra.security.jwt.CookieService;
 import com.example.ra.security.jwt.JwtService;
 import com.example.ra.web.DTO.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,8 +34,9 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
+    private final CookieService cookieService;
 
-    public AuthenticationResponse register(UserDto userDto) {
+    public ResponseEntity<?> register(UserDto userDto, HttpServletResponse response) throws IOException {
         User user = User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
@@ -43,15 +46,29 @@ public class AuthenticationService {
                 .build();
         var savedUser = userRepository.save(user);
 
+        var jwtToken = jwtService.generateJwtToken(user);
+        var refreshToken = jwtService.generateRefreshToken(user);
+
+        tokenService.saveTokenWithUser(user, jwtToken, TokenType.ACCESS);
+        tokenService.saveTokenWithUser(user, refreshToken, TokenType.REFRESH);
 
 
 
-        return GenerateJwtTokenAndRefreshTokenAndReturnAuthenticationResponseWith2(savedUser);
+        // Add tokens as cookies
+        cookieService.createAccessTokenCookie(response, jwtToken);
+        cookieService.createRefreshTokenCookie(response, refreshToken);
+
+        // Return minimal response (tokens are in cookies)
+        return ResponseEntity.ok().build();
+
+
+
+
     }
 
 
     @Transactional
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public ResponseEntity<?> authenticate(AuthenticationRequest request, HttpServletResponse response) throws IOException {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -64,7 +81,21 @@ public class AuthenticationService {
 
         tokenRepository.deleteByUser(user);
 
-        return GenerateJwtTokenAndRefreshTokenAndReturnAuthenticationResponseWith2(user);
+        var jwtToken = jwtService.generateJwtToken(user);
+        var refreshToken = jwtService.generateRefreshToken(user);
+
+        tokenService.saveTokenWithUser(user, jwtToken, TokenType.ACCESS);
+        tokenService.saveTokenWithUser(user, refreshToken, TokenType.REFRESH);
+
+
+
+        // Add tokens as cookies
+        cookieService.createAccessTokenCookie(response, jwtToken);
+        cookieService.createRefreshTokenCookie(response, refreshToken);
+
+        // Return minimal response (tokens are in cookies)
+        return ResponseEntity.ok().build();
+
     }
 
     public AuthenticationResponse GenerateJwtTokenAndRefreshTokenAndReturnAuthenticationResponseWith2(User user) {
@@ -81,28 +112,42 @@ public class AuthenticationService {
     }
 
     @Transactional
-    public AuthenticationResponse refreshToken(
+    public ResponseEntity<?> refreshToken(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException {
 
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        final String refreshToken;
+        final String refreshTokenTemp;
         final String userEmail;
         if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
             return null;
         }
-        refreshToken = authHeader.substring(7);
+        refreshTokenTemp = authHeader.substring(7);
 
 
-        userEmail = jwtService.extractUsername(refreshToken);
+        userEmail = jwtService.extractUsername(refreshTokenTemp);
 
         if (userEmail != null) {
             var user = userRepository.findByEmail(userEmail);
-            if (jwtService.isTokenValid(refreshToken, user)) {
+            if (jwtService.isTokenValid(refreshTokenTemp, user)) {
                 tokenRepository.deleteByUser(user);
             }
-            return GenerateJwtTokenAndRefreshTokenAndReturnAuthenticationResponseWith2(user);
+            var jwtToken = jwtService.generateJwtToken(user);
+            var refreshToken = jwtService.generateRefreshToken(user);
+
+            tokenService.saveTokenWithUser(user, jwtToken, TokenType.ACCESS);
+            tokenService.saveTokenWithUser(user, refreshToken, TokenType.REFRESH);
+
+
+
+            // Add tokens as cookies
+            cookieService.createAccessTokenCookie(response, jwtToken);
+            cookieService.createRefreshTokenCookie(response, refreshToken);
+
+            // Return minimal response (tokens are in cookies)
+            return ResponseEntity.ok().build();
+
 
         }
         return null;

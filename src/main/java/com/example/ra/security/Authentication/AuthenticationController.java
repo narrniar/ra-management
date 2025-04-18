@@ -1,5 +1,6 @@
 package com.example.ra.security.Authentication;
 
+import com.example.ra.security.jwt.CookieService;
 import com.example.ra.web.DTO.UserDto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,26 +19,36 @@ import java.io.IOException;
 public class AuthenticationController {
 
     private final AuthenticationService service;
+    private final CookieService cookieService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody UserDto userDto
-    ) {
-        return ResponseEntity.ok(service.register(userDto));
+    public ResponseEntity<?> register(
+            @RequestBody UserDto userDto, HttpServletResponse response
+    ) throws IOException {
+        return service.register(userDto, response);
     }
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AuthenticationRequest authenticationRequest
-    ) {
-        return ResponseEntity.ok(service.authenticate(authenticationRequest));
+    public ResponseEntity<?> authenticate(
+            @RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response
+    ) throws IOException {
+
+
+        return service.authenticate(authenticationRequest, response);
     }
 
     @PostMapping("/refresh-token")
-    public void refreshToken(
+    public ResponseEntity<?> refreshToken(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException {
-        service.refreshToken(request, response);
+        return service.refreshToken(request, response);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(HttpServletResponse response) {
+        // Clear cookies
+        cookieService.clearTokenCookies(response);
+        return ResponseEntity.ok().build();
     }
 
 

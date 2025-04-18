@@ -18,4 +18,16 @@ jwt:
   refresh-token:
     expiration: 604800000 # 7 days
 
+app:
+  jwt:
+    cookie:
+      name: access_token
+      refresh-name: refresh_token
+      max-age: 86400         # 24 hours in seconds
+      secure: true           # Only sent over HTTPS
+      http-only: true        # Not accessible via JavaScript
+      domain:                # Your domain (optional)
+      path: /                # Path where cookie is valid
+      same-site: Strict      # CSRF protection
+
 
