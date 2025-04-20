@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: test
+    password: test
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#  # Disable flyway for tests if you're using it
+#  flyway:
+#    enabled: false
+#  # Disable Redis for tests if you're using it
+#  redis:
+#    enabled: false
+
+jwt:
+  secret: ${JWT_SECRET:R1BYcTVXVGNDU2JmWHVnZ1lnN0FKeGR3cU1RUU45QXV4SDJONFZ3ckhwS1N0ZjNCYVkzZ0F4RVBSS1UzRENwRw==}
+  expiration: ${JWT_EXPIRATION:86400000}
+  refresh-token:
+    expiration: 604800000 # 7 days
+
+app:
+  jwt:
+    cookie:
+      name: access_token
+      refresh-name: refresh_token
+      max-age: 86400
+      secure: false # Setting to false for tests
+      http-only: true
+      domain:
+      path: /
+      same-site: Strict
+
+# Set to a lower value for tests
+server:
+  port: 0 # Random port for parallel test execution
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.example.ra: DEBUG # Your application package
+    org.springframework.test: INFO
+    org.springframework.security: INFO

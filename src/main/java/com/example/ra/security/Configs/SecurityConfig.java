@@ -2,7 +2,6 @@ package com.example.ra.security.Configs;
 
 
 import com.example.ra.security.jwt.CookieAuthenticationFilter;
-import com.example.ra.security.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +30,7 @@ import java.util.List;
 public class SecurityConfig {
 
     private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
+            "/api/v1/**",
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
@@ -42,7 +42,6 @@ public class SecurityConfig {
             "/webjars/**",
             "/swagger-ui.html"};
 
-    private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
 

@@ -30,4 +30,9 @@ app:
       path: /                # Path where cookie is valid
       same-site: Strict      # CSRF protection
 
+# Google Drive API Configuration
+google:
+  service-account:
+    key-file: classpath:service-account-key.json
+
 

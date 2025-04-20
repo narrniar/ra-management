@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum Privelege {
 
     ADMIN_READ("admin:read"),
@@ -17,13 +18,8 @@ public enum Privelege {
 
     ;
 
-    Privelege(String privelege) {
-        this.privelege = privelege;
-    }
-    @Getter
+    
     private final String privelege;
 
-    public String getPrivelege() {
-        return privelege;
-    }
+    
 }
