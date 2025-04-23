@@ -1,6 +1,6 @@
 //package com.example.ra.web;
 //
-//import com.example.ra.services.GoogleDriveService;
+//import com.example.ra.google_drive.GoogleDriveService;
 //import com.google.api.services.drive.model.File;
 //import com.google.api.services.drive.model.Permission;
 //import org.springframework.beans.factory.annotation.Autowired;

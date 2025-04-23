@@ -46,19 +46,6 @@ public class AuthenticationService {
                 .build();
         var savedUser = userRepository.save(user);
 
-        var jwtToken = jwtService.generateJwtToken(user);
-        var refreshToken = jwtService.generateRefreshToken(user);
-
-        tokenService.saveTokenWithUser(user, jwtToken, TokenType.ACCESS);
-        tokenService.saveTokenWithUser(user, refreshToken, TokenType.REFRESH);
-
-
-
-        // Add tokens as cookies
-        cookieService.createAccessTokenCookie(response, jwtToken);
-        cookieService.createRefreshTokenCookie(response, refreshToken);
-
-        // Return minimal response (tokens are in cookies)
         return ResponseEntity.ok().build();
 
 

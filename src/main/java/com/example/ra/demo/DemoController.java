@@ -8,14 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/demo-controller")
+@RequestMapping("/api/v1/")
 @Hidden
 public class DemoController {
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> sayHello() {
         return ResponseEntity.ok("Hello from secured endpoint (admin only)");
+    }
+
+    @GetMapping("/user/profile")
+    public ResponseEntity<String> sayUserProfile() {
+        return ResponseEntity.ok("User profile");
     }
 
 }
