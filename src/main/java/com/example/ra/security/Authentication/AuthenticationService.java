@@ -71,6 +71,9 @@ public class AuthenticationService {
         tokenService.saveTokenWithUser(user, jwtToken, TokenType.ACCESS);
         tokenService.saveTokenWithUser(user, refreshToken, TokenType.REFRESH);
 
+        UserDto userDto = new UserDto(user.getFirstName(), user.getLastName(), null, user.getEmail(), user.getRole());
+
+
 
 
         // Add tokens as cookies
@@ -78,7 +81,7 @@ public class AuthenticationService {
         cookieService.createRefreshTokenCookie(response, refreshToken);
 
         // Return minimal response (tokens are in cookies)
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(userDto);
 
     }
 

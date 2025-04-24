@@ -2,13 +2,14 @@ package com.example.ra.persistence.models;
 
 import com.example.ra.persistence.models.FILE.File;
 import com.example.ra.persistence.models.TOKEN.Token;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import net.minidev.json.annotate.JsonIgnore;
+
 
 import java.util.HashSet;
 import java.util.List;
