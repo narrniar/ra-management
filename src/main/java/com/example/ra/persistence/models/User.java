@@ -1,13 +1,15 @@
 package com.example.ra.persistence.models;
 
+import com.example.ra.persistence.models.FILE.File;
+import com.example.ra.persistence.models.TOKEN.Token;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import net.minidev.json.annotate.JsonIgnore;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,7 +23,8 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
+    @Column(name = "user_id")
     private Long id;
 
     @Column(nullable = false)
@@ -30,6 +33,7 @@ public class User {
     @Column(nullable = false)
     private String lastName;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -39,9 +43,15 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<File> files;
+
+
 
 
 

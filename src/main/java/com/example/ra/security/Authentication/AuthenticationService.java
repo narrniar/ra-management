@@ -3,14 +3,12 @@ package com.example.ra.security.Authentication;
 
 import com.example.ra.persistence.dao.TokenRepository;
 import com.example.ra.persistence.dao.UserRepository;
-import com.example.ra.persistence.models.Token;
-import com.example.ra.persistence.models.TokenType;
+import com.example.ra.persistence.models.TOKEN.TokenType;
 import com.example.ra.persistence.models.User;
 import com.example.ra.persistence.services.TokenService;
 import com.example.ra.security.jwt.CookieService;
 import com.example.ra.security.jwt.JwtService;
 import com.example.ra.web.DTO.UserDto;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
@@ -23,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -81,7 +78,7 @@ public class AuthenticationService {
         cookieService.createRefreshTokenCookie(response, refreshToken);
 
         // Return minimal response (tokens are in cookies)
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(user);
 
     }
 

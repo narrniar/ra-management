@@ -1,5 +1,6 @@
-package com.example.ra.persistence.models;
+package com.example.ra.persistence.models.TOKEN;
 
+import com.example.ra.persistence.models.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

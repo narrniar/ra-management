@@ -1,7 +1,7 @@
 package com.example.ra.persistence.dao;
 
-import com.example.ra.persistence.models.Token;
-import com.example.ra.persistence.models.TokenType;
+import com.example.ra.persistence.models.TOKEN.Token;
+import com.example.ra.persistence.models.TOKEN.TokenType;
 import com.example.ra.persistence.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -10,7 +10,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 
 public interface TokenRepository extends JpaRepository<Token, Long> {
 

@@ -1,4 +1,4 @@
-package com.example.ra.persistence.models;
+package com.example.ra.persistence.models.TOKEN;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

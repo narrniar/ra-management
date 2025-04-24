@@ -3,7 +3,7 @@ package com.example.ra.persistence.services;
 
 import com.example.ra.persistence.dao.TokenRepository;
 import com.example.ra.persistence.dao.UserRepository;
-import com.example.ra.persistence.models.Token;
+import com.example.ra.persistence.models.TOKEN.Token;
 import com.example.ra.persistence.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

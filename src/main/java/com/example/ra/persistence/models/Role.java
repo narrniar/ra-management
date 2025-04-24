@@ -1,17 +1,15 @@
 package com.example.ra.persistence.models;
 
-import jakarta.persistence.*;
+import com.example.ra.persistence.models.TOKEN.Privelege;
 import lombok.*;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.security.Permission;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.example.ra.persistence.models.Privelege.*;
+import static com.example.ra.persistence.models.TOKEN.Privelege.*;
 @Getter
 @RequiredArgsConstructor
 public enum Role {

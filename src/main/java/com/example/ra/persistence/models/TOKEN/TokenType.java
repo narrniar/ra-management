@@ -1,4 +1,4 @@
-package com.example.ra.persistence.models;
+package com.example.ra.persistence.models.TOKEN;
 
 
 public enum TokenType {

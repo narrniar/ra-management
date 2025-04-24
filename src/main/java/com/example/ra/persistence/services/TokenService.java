@@ -1,8 +1,8 @@
 package com.example.ra.persistence.services;
 
 import com.example.ra.persistence.dao.TokenRepository;
-import com.example.ra.persistence.models.Token;
- import com.example.ra.persistence.models.TokenType;
+import com.example.ra.persistence.models.TOKEN.Token;
+ import com.example.ra.persistence.models.TOKEN.TokenType;
 import com.example.ra.persistence.models.User;
 import com.example.ra.security.jwt.JwtService;
 import io.jsonwebtoken.Claims;

@@ -1,8 +1,8 @@
 //package com.example.ra.persistence.services;
 //
 //import com.example.ra.persistence.dao.TokenRepository;
-//import com.example.ra.persistence.models.Token;
-//import com.example.ra.persistence.models.TokenType;
+//import com.example.ra.persistence.models.TOKEN.Token;
+//import com.example.ra.persistence.models.TOKEN.TokenType;
 //import com.example.ra.persistence.models.User;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
