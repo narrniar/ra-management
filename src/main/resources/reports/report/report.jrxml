@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_ra" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e39593c-23e5-4e24-af51-ed2977b1ec2b">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="report.jrdax"/>
+    <parameter name="photo" class="java.lang.String">
+        <defaultValueExpression><![CDATA["data:image/png;base64,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"]]></defaultValueExpression>
+    </parameter>
+    <queryString language="JSON">
+        <![CDATA[]]>
+    </queryString>
+    <field name="ra_firstname" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="ra_firstname"/>
+        <fieldDescription><![CDATA[ra_firstname]]></fieldDescription>
+    </field>
+    <field name="ra_lastname" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="ra_lastname"/>
+        <fieldDescription><![CDATA[ra_lastname]]></fieldDescription>
+    </field>
+    <field name="ra_email" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="ra_email"/>
+        <fieldDescription><![CDATA[ra_email]]></fieldDescription>
+    </field>
+    <field name="pa_firstname" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="pa_firstname"/>
+        <fieldDescription><![CDATA[pa_firstname]]></fieldDescription>
+    </field>
+    <field name="pa_lastname" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="pa_lastname"/>
+        <fieldDescription><![CDATA[pa_lastname]]></fieldDescription>
+    </field>
+    <field name="pa_email" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="pa_email"/>
+        <fieldDescription><![CDATA[pa_email]]></fieldDescription>
+    </field>
+    <field name="project_name" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="project_name"/>
+        <fieldDescription><![CDATA[project_name]]></fieldDescription>
+    </field>
+    <field name="report_type" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="report_type"/>
+        <fieldDescription><![CDATA[report_type]]></fieldDescription>
+    </field>
+    <field name="reporting_period" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="reporting_period"/>
+        <fieldDescription><![CDATA[reporting_period]]></fieldDescription>
+    </field>
+    <field name="description" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="description"/>
+        <fieldDescription><![CDATA[description]]></fieldDescription>
+    </field>
+    <field name="tasks" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="tasks"/>
+        <fieldDescription><![CDATA[tasks]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="200" splitType="Immediate">
+            <staticText>
+                <reportElement positionType="Float" x="0" y="0" width="544" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="36db4bd7-1661-44ac-be61-f0c5ee7aba93"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="24" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                </textElement>
+                <text><![CDATA[Report]]></text>
+            </staticText>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="0" y="30" width="544" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="571d5b17-8f7f-4440-8a25-b06dc19844a7"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="14" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{report_type}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="0" y="60" width="544" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="cee6236d-c985-40e2-a65e-1b3187d7378f"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="14" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{project_name}]]></textFieldExpression>
+            </textField>
+            <image onErrorType="Blank">
+                <reportElement positionType="Float" x="480" y="0" width="80" height="90" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="36e0e2de-067c-4d65-adab-5cee97a58aff"/>
+                <imageExpression><![CDATA[new java.io.ByteArrayInputStream(
+            java.util.Base64.getDecoder().decode(
+                $P{photo}.replaceFirst("^data:image/[^;]+;base64,", "")
+            )
+        )]]></imageExpression>
+            </image>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="0" y="90" width="544" height="30" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="3cb2c7c6-def3-4181-a85c-45ee0a3073d8"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="14" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($F{reporting_period})]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="160" width="544" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="19fb5c43-0898-4be3-ac95-09c88b040970">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Left">
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="120" width="110" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="719d64f0-b524-499e-b94f-d8c2a8d8cdb5">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <text><![CDATA[research assistant:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement positionType="Float" x="0" y="140" width="70" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="e471fc57-a31b-47a4-81c8-593ac08cc41b">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <text><![CDATA[professor:]]></text>
+            </staticText>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="70" y="140" width="40" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="431e52ab-a78a-48e3-acfc-9845941eae62">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pa_firstname}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="110" y="140" width="100" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="94998253-3f99-41a5-b4b4-5d04b571925c">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pa_lastname}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="110" y="120" width="40" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="e20cd09c-df55-4c51-bfb0-de5b3db8aaf0">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ra_firstname}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="150" y="120" width="100" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="d2a213d5-c035-4da3-8a7d-df21f3be1084">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ra_lastname}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="250" y="120" width="294" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="cac07d93-93b3-454a-81ca-451c89c0b3f6">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ra_email}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement positionType="Float" x="210" y="140" width="334" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="c5395f72-c0ae-4d78-bf7a-aa4844b546de">
+                    <property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Times New Roman" size="12" isBold="false" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                    <paragraph leftIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pa_email}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="180" width="544" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="4fbb7fe7-cea5-42c6-ac5f-60717112d747"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="14" isBold="true" pdfFontName="timesnewroman.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+                </textElement>
+                <text><![CDATA[Tasks]]></text>
+            </staticText>
+        </band>
+    </detail>
+</jasperReport>

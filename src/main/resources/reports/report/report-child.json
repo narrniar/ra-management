@@ -1,0 +1,5 @@
+{
+  "date": "2023 2023 50 28",
+  "hours": "15-20 hours",
+  "description": "The Hibernate configuration warning advises against explicitly setting the `PostgreSQLDialect`. [cite: 11] Hibernate can automatically"
+}
