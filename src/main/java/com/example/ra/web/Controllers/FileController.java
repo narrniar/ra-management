@@ -9,12 +9,10 @@ import com.example.ra.persistence.models.User;
 import com.example.ra.web.DTO.FileRequestDto;
 import com.example.ra.web.DTO.GetFilesDto;
 import com.example.ra.web.DTO.GetProfessorFilesDto;
+import com.example.ra.web.DTO.UpdateStatusDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.core.io.InputStreamResource;
 
 import java.io.IOException;
@@ -113,14 +111,14 @@ public class FileController {
                 .body(new InputStreamResource(inputStream));
     }
 
-    @PostMapping("/prof/all/pending")
-    public ResponseEntity<List<Map<String, Object>>> getAllPendingReportsForProfessor(@RequestBody GetProfessorFilesDto request) {
+    @PostMapping("/prof/all/status/{status}")
+    public ResponseEntity<List<Map<String, Object>>> getAllPendingReportsForProfessor(@RequestBody GetProfessorFilesDto request, @PathVariable String status) {
         List<Map<String, Object>> responses = userRepository.findAll().stream()
                 .filter(user -> request.getProfessorEmail().equalsIgnoreCase(user.getProfessor_email()))
                 .flatMap(user -> user.getFiles().stream())
                 .filter(f -> f instanceof Report)
                 .map(f -> (Report) f)
-                .filter(r -> r.getStatus().equalsIgnoreCase("PENDING")) // Filter by status
+                .filter(r -> r.getStatus().equalsIgnoreCase(status)) // Filter by status
                 .map(report -> {
                     Map<String, Object> map = new HashMap<>();
                     map.put("raFirstName", report.getUser().getFirstName());
@@ -143,6 +141,27 @@ public class FileController {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(responses);
+    }
+
+    @PostMapping("/update-status")
+    public ResponseEntity<?> updateReportStatus(@RequestBody UpdateStatusDto request) {
+        // Find report by professor email and report title
+        Report matchedReport = userRepository.findAll().stream()
+                .filter(user -> request.getProfessorEmail().equalsIgnoreCase(user.getProfessor_email()))
+                .flatMap(user -> user.getFiles().stream())
+                .filter(f -> f instanceof Report)
+                .map(f -> (Report) f)
+                .filter(r -> r.getReport_title().equalsIgnoreCase(request.getReportTitle()))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Report not found for professor: " + request.getProfessorEmail()));
+
+        // Update status
+        matchedReport.setStatus(request.getNewStatus());
+
+        // Save user back (to persist file changes)
+        userRepository.save(matchedReport.getUser());
+
+        return ResponseEntity.ok("Status updated successfully to: " + request.getNewStatus());
     }
 
     /**
