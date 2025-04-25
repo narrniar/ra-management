@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -235,6 +236,13 @@ public class GoogleDriveService {
 
     public String getDownloadUrlByName(String fileName) throws IOException, GeneralSecurityException {
         return getDownloadUrlByName(fileName, DEFAULT_ROOT_FOLDER_ID);
+    }
+
+    public InputStream downloadFileAsStream(String file_code) throws IOException, GeneralSecurityException {
+        Drive driveService = createDriveService(); // however you set it up
+
+        return driveService.files().get(file_code)
+                .executeMediaAsInputStream();
     }
 
 

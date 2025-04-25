@@ -10,7 +10,7 @@ Content-Type: application/json
   "role": "PA"
 }
 
-### register admin
+### register RA
 POST http://localhost:8083/api/v1/auth/register
 Content-Type: application/json
 
@@ -112,5 +112,23 @@ POST http://localhost:8083/api/v1/drive/folder
 Content-Type: application/x-www-form-urlencoded
 
 folderName=MyTestFolder
+
+### Get a file from Google Drive
+POST http://localhost:8083/api/v1/file/report/pdf
+Content-Type: application/json
+
+{
+  "email": "ra@example.com",
+  "reportTitle": "report title"
+}
+
+
+### Get all files from Google Drive
+POST http://localhost:8083/api/v1/file/report/all
+Content-Type: application/json
+
+{
+  "email": "ra@example.com"
+}
 
 

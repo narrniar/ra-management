@@ -23,7 +23,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/generate")
-public class reportController {
+public class ReportController {
 
     private final reportService reportService;
     private final GoogleDriveService googleDriveService;
@@ -68,5 +68,7 @@ public class reportController {
                 .header("Content-Disposition", "attachment; filename=" + file.getName())
                 .body(resource);
     }
+
+
 
 }

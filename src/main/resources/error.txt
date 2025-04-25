@@ -134,7 +134,7 @@ org.hibernate.id.IdentifierGenerationException: Identifier of entity 'com.exampl
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.5.jar:6.2.5]
 	at jdk.proxy2/jdk.proxy2.$Proxy166.save(Unknown Source) ~[na:na]
-	at com.example.ra.web.Controllers.reportController.generateReport(reportController.java:55) ~[classes/:na]
+	at com.example.ra.web.Controllers.ReportController.generateReport(reportController.java:55) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.5.jar:6.2.5]
