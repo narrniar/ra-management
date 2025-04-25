@@ -52,6 +52,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<File> files;
 
+    private String professor_email;
+
 
 
 

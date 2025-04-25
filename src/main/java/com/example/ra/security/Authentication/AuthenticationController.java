@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -24,7 +25,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public ResponseEntity<?> register(
             @RequestBody UserDto userDto, HttpServletResponse response
-    ) throws IOException {
+    ) throws IOException, GeneralSecurityException {
         return service.register(userDto, response);
     }
     @PostMapping("/authenticate")

@@ -1,4 +1,4 @@
-package com.example.ra.google_drive;
+package com.example.ra.google_drive.Dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

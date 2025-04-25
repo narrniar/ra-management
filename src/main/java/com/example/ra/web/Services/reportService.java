@@ -16,19 +16,15 @@ public class reportService {
     private static final String REPORT_CHILD_TEMPLATE = "reports/report/report-child.jrxml";
     private static final String SUBREPORT_TEMPLATE = "reports/subreport/subreport.jrxml";
 
-    public void generateReport(Map<String, ?> data, HttpServletResponse response) {
-
-
-
-        try{
-
+    public java.io.File generateReport(Map<String, ?> data) {
+        try {
             InputStream reportStream = getClass().getClassLoader().getResourceAsStream(REPORT_TEMPLATE);
             InputStream reportChildStream = getClass().getClassLoader().getResourceAsStream(REPORT_CHILD_TEMPLATE);
             InputStream subreportStream = getClass().getClassLoader().getResourceAsStream(SUBREPORT_TEMPLATE);
 
             JasperReport report = JasperCompileManager.compileReport(reportStream);
             JasperReport reportChild = JasperCompileManager.compileReport(reportChildStream);
-            JasperReport subreport= JasperCompileManager.compileReport(subreportStream);
+            JasperReport subreport = JasperCompileManager.compileReport(subreportStream);
 
             List<JasperReport> subreportSources = new ArrayList<>();
             List<JRDataSource> subreportDataSources = new ArrayList<>();
@@ -52,31 +48,16 @@ public class reportService {
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(subreport, parameters, dataSourceWithSize);
 
+            // Create temp file for PDF output
+            java.io.File pdfFile = java.io.File.createTempFile("report-", ".pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfFile.getAbsolutePath());
 
-
-            // Set response headers
-            response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition", "attachment; filename=Checklist.pdf");
-            // Export PDF
-            JasperExportManager.exportReportToPdfStream(jasperPrint, response.getOutputStream());
-
-            response.getOutputStream().flush();
-
+            return pdfFile;
 
         } catch (Exception e) {
             e.printStackTrace();
-            handleError(response, "Error generating report: " + e.getMessage(), e);
+            throw new RuntimeException("Error generating report: " + e.getMessage(), e);
         }
     }
 
-    private void handleError(HttpServletResponse response, String message, Exception e) {
-        try {
-            if (!response.isCommitted()) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message);
-            }
-        } catch (Exception ioException) {
-            ioException.printStackTrace();
-        }
-        e.printStackTrace();
-    }
 }

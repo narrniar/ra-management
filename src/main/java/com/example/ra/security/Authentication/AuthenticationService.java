@@ -1,6 +1,7 @@
 package com.example.ra.security.Authentication;
 
 
+import com.example.ra.google_drive.GoogleDriveService;
 import com.example.ra.persistence.dao.TokenRepository;
 import com.example.ra.persistence.dao.UserRepository;
 import com.example.ra.persistence.models.TOKEN.TokenType;
@@ -13,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import net.sf.jasperreports.olap.result.JROlapHierarchyLevel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 @Service
 @RequiredArgsConstructor
@@ -32,16 +35,24 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
     private final CookieService cookieService;
+    private final GoogleDriveService googleDriveService;
 
-    public ResponseEntity<?> register(UserDto userDto, HttpServletResponse response) throws IOException {
+    public ResponseEntity<?> register(UserDto userDto, HttpServletResponse response) throws IOException, GeneralSecurityException {
         User user = User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
                 .email(userDto.getEmail())
                 .password(passwordEncoder.encode( userDto.getPassword()))
                 .role(userDto.getRole())
+                .professor_email(userDto.getProfessor_email())
                 .build();
-        var savedUser = userRepository.save(user);
+        userRepository.save(user);
+
+        if (user.getRole().name().equals( "RA")) {
+            googleDriveService.createFolder(user.getEmail(), googleDriveService.getFolderId(user.getProfessor_email()));
+        } else if (user.getRole().name().equals( "PA")) {
+            googleDriveService.createFolder(user.getEmail());
+        }
 
         return ResponseEntity.ok().build();
 
@@ -71,7 +82,14 @@ public class AuthenticationService {
         tokenService.saveTokenWithUser(user, jwtToken, TokenType.ACCESS);
         tokenService.saveTokenWithUser(user, refreshToken, TokenType.REFRESH);
 
-        UserDto userDto = new UserDto(user.getFirstName(), user.getLastName(), null, user.getEmail(), user.getRole());
+        UserDto userDto = UserDto.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .password(passwordEncoder.encode( user.getPassword()))
+                .role(user.getRole())
+                .professor_email(user.getProfessor_email())
+                .build();
 
 
 

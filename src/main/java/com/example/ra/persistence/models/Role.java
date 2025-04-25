@@ -23,16 +23,22 @@ public enum Role {
                     ADMIN_CREATE
             )
     ),
-    MANAGER(
+    PA(
             Set.of(
-                    MANAGER_READ,
-                    MANAGER_UPDATE,
-                    MANAGER_DELETE,
-                    MANAGER_CREATE
+                    PA_READ,
+                    PA_UPDATE,
+                    PA_DELETE,
+                    PA_CREATE
             )
-    )
-
-    ;
+    ),
+    RA(
+            Set.of(
+                    RA_READ,
+                    RA_UPDATE,
+                    RA_DELETE,
+                    RA_CREATE
+            )
+    );
 
 
     private final Set<Privelege> priveleges;
