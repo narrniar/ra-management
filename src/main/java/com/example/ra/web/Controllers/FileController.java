@@ -82,8 +82,8 @@ public class FileController {
                     map.put("fileCode", report.getFileCode());
                     map.put("creationDate", report.getCreationDate());
                     map.put("status", report.getStatus());
-                    map.put("profFirstName", userRepository.findByEmail(report.getUser().getEmail()).getFirstName());
-                    map.put("profLastName", userRepository.findByEmail(report.getUser().getEmail()).getLastName());
+                    map.put("profFirstName", userRepository.findByEmail(report.getUser().getProfessor_email()).getFirstName());
+                    map.put("profLastName", userRepository.findByEmail(report.getUser().getProfessor_email()).getLastName());
 
                     return map;
                 })
@@ -113,6 +113,37 @@ public class FileController {
                 .body(new InputStreamResource(inputStream));
     }
 
+    @PostMapping("/prof/all/pending")
+    public ResponseEntity<List<Map<String, Object>>> getAllPendingReportsForProfessor(@RequestBody GetProfessorFilesDto request) {
+        List<Map<String, Object>> responses = userRepository.findAll().stream()
+                .filter(user -> request.getProfessorEmail().equalsIgnoreCase(user.getProfessor_email()))
+                .flatMap(user -> user.getFiles().stream())
+                .filter(f -> f instanceof Report)
+                .map(f -> (Report) f)
+                .filter(r -> r.getStatus().equalsIgnoreCase("PENDING")) // Filter by status
+                .map(report -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("raFirstName", report.getUser().getFirstName());
+                    map.put("raLastName", report.getUser().getLastName());
+                    map.put("reportTitle", report.getReport_title());
+                    map.put("fileCode", report.getFileCode());
+                    map.put("creationDate", report.getCreationDate());
+                    map.put("status", report.getStatus());
+
+                    User professor = userRepository.findByEmail(report.getUser().getProfessor_email());
+                    if (professor != null) {
+                        map.put("profFirstName", professor.getFirstName());
+                        map.put("profLastName", professor.getLastName());
+                    } else {
+                        map.put("profFirstName", "N/A"); // Or handle it as you see fit
+                        map.put("profLastName", "N/A");
+                    }
+                    return map;
+                })
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(responses);
+    }
 
     /**
      * Get all files submitted by a specific RA (Research Assistant) by email.

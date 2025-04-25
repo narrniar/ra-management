@@ -139,6 +139,14 @@ Content-Type: application/json
 "professorEmail": "prof@example.com"
 }
 
+### Get all pending files from Google Drive for PA
+POST http://localhost:8083/api/v1/file/report/prof/all/pending
+Content-Type: application/json
+
+{
+"professorEmail": "prof@example.com"
+}
+
 ### Get file for prof
 POST http://localhost:8083/api/v1/file/report/prof/pdf
 Content-Type: application/json
