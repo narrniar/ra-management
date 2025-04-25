@@ -131,4 +131,22 @@ Content-Type: application/json
   "email": "ra@example.com"
 }
 
+### Get all files from Google Drive for PA
+POST http://localhost:8083/api/v1/file/report/prof/all
+Content-Type: application/json
+
+{
+"professorEmail": "prof@example.com"
+}
+
+### Get file for prof
+POST http://localhost:8083/api/v1/file/report/prof/pdf
+Content-Type: application/json
+
+{
+  "professorEmail": "prof@example.com",
+  "reportTitle": "report title"
+}
+
+
 

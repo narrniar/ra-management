@@ -5,8 +5,10 @@ import com.example.ra.google_drive.GoogleDriveService;
 import com.example.ra.persistence.dao.UserRepository;
 import com.example.ra.persistence.models.FILE.CHILDREN.Report;
 import com.example.ra.persistence.models.FILE.File;
+import com.example.ra.persistence.models.User;
 import com.example.ra.web.DTO.FileRequestDto;
 import com.example.ra.web.DTO.GetFilesDto;
+import com.example.ra.web.DTO.GetProfessorFilesDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +20,10 @@ import org.springframework.core.io.InputStreamResource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.GeneralSecurityException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/file/report")
@@ -54,6 +59,52 @@ public class FileController {
 
         String fileId = matchedReport.getFileCode();
 
+        InputStream inputStream = googleDriveService.downloadFileAsStream(fileId);
+
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "inline; filename=\"" + matchedReport.getReport_title() + ".pdf\"")
+                .header("Content-Type", "application/pdf")
+                .body(new InputStreamResource(inputStream));
+    }
+
+    @PostMapping("/prof/all")
+    public ResponseEntity<List<Map<String, Object>>> getAllReportsForProfessor(@RequestBody GetProfessorFilesDto request) {
+        List<Map<String, Object>> responses = userRepository.findAll().stream()
+                .filter(user -> request.getProfessorEmail().equalsIgnoreCase(user.getProfessor_email()))
+                .flatMap(user -> user.getFiles().stream())
+                .filter(f -> f instanceof Report)
+                .map(f -> (Report) f)
+                .map(report -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("raFirstName", report.getUser().getFirstName());
+                    map.put("raLastName", report.getUser().getLastName());
+                    map.put("reportTitle", report.getReport_title());
+                    map.put("fileCode", report.getFileCode());
+                    map.put("creationDate", report.getCreationDate());
+                    map.put("status", report.getStatus());
+                    map.put("profFirstName", userRepository.findByEmail(report.getUser().getEmail()).getFirstName());
+                    map.put("profLastName", userRepository.findByEmail(report.getUser().getEmail()).getLastName());
+
+                    return map;
+                })
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(responses);
+    }  /**
+     * Get a specific report submitted to a professor as PDF.
+     */
+    @PostMapping("/prof/pdf")
+    public ResponseEntity<?> getReportPdfForProfessor(@RequestBody GetProfessorFilesDto request) throws IOException, GeneralSecurityException {
+        Report matchedReport = userRepository.findAll().stream()
+                .filter(user -> request.getProfessorEmail().equalsIgnoreCase(user.getProfessor_email()))
+                .flatMap(user -> user.getFiles().stream())
+                .filter(f -> f instanceof Report)
+                .map(f -> (Report) f)
+                .filter(r -> r.getReport_title().equalsIgnoreCase(request.getReportTitle()))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Report not found: " + request.getReportTitle()));
+
+        String fileId = matchedReport.getFileCode();
         InputStream inputStream = googleDriveService.downloadFileAsStream(fileId);
 
         return ResponseEntity.ok()
