@@ -1,0 +1,65 @@
+{
+  "common": {
+    "appName": "РА/ПА есеп жүйесі",
+    "dashboard": "Басқару тақтасы",
+    "reportSubmission": "Есеп тапсыру",
+    "allReports": "Барлық есептер",
+    "profile": "Профиль",
+    "logout": "Шығу",
+    "save": "Сақтау",
+    "cancel": "Болдырмау",
+    "submit": "Жіберу",
+    "preview": "Алдын ала қарау",
+    "search": "Іздеу",
+    "actions": "Әрекеттер"
+  },
+  "auth": {
+    "login": "Кіру",
+    "register": "Тіркелу",
+    "forgotPassword": "Құпия сөзді ұмыттыңыз ба",
+    "email": "Эл. пошта",
+    "password": "Құпия сөз",
+    "confirmPassword": "Құпия сөзді растау",
+    "fullName": "Толық аты-жөні",
+    "signIn": "Кіру",
+    "signUp": "Тіркелу",
+    "dontHaveAccount": "Аккаунтыңыз жоқ па?",
+    "alreadyHaveAccount": "Аккаунтыңыз бар ма?"
+  },
+  "dashboard": {
+    "upcomingDeadlines": "Алдағы есеп мерзімдері",
+    "recentActivity": "Соңғы әрекеттер",
+    "newReport": "Жаңа есеп"
+  },
+  "reports": {
+    "title": "Есеп атауы",
+    "type": "Есеп түрі",
+    "status": "Күйі",
+    "submissionDate": "Тапсыру күні",
+    "submittedBy": "Тапсырушы",
+    "projectName": "Жоба атауы",
+    "description": "Сипаттама",
+    "period": "Есеп кезеңі",
+    "hours": "Сағаттар",
+    "task": "Тапсырма",
+    "date": "Күні",
+    "addRow": "Жол қосу",
+    "deleteRow": "Жолды жою",
+    "submitReport": "Есепті жіберу",
+    "previewReport": "Есепті алдын ала қарау",
+    "approvalRoute": "Бекіту жолы",
+    "timeline": "Уақыт желісі",
+    "filters": {
+      "status": "Күйі",
+      "type": "Түрі",
+      "startDate": "Бастау күні",
+      "endDate": "Аяқтау күні",
+      "search": "Есептерді іздеу"
+    },
+    "statuses": {
+      "pending": "Қаралуда",
+      "approved": "Бекітілген",
+      "rejected": "Қабылданбады"
+    }
+  }
+} 

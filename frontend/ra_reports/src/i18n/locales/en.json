@@ -1,0 +1,65 @@
+{
+  "common": {
+    "appName": "RA/PA Report System",
+    "dashboard": "Dashboard",
+    "reportSubmission": "Report Submission",
+    "allReports": "All Reports",
+    "profile": "Profile",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "preview": "Preview",
+    "search": "Search",
+    "actions": "Actions"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?"
+  },
+  "dashboard": {
+    "upcomingDeadlines": "Upcoming Report Deadlines",
+    "recentActivity": "Recent Activity",
+    "newReport": "New Report"
+  },
+  "reports": {
+    "title": "Report Title",
+    "type": "Report Type",
+    "status": "Status",
+    "submissionDate": "Submission Date",
+    "submittedBy": "Submitted By",
+    "projectName": "Project Name",
+    "description": "Description",
+    "period": "Reporting Period",
+    "hours": "Hours",
+    "task": "Task",
+    "date": "Date",
+    "addRow": "Add Row",
+    "deleteRow": "Delete Row",
+    "submitReport": "Submit Report",
+    "previewReport": "Preview Report",
+    "approvalRoute": "Approval Route",
+    "timeline": "Timeline",
+    "filters": {
+      "status": "Status",
+      "type": "Type",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "search": "Search Reports"
+    },
+    "statuses": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    }
+  }
+} 

@@ -1,0 +1,65 @@
+{
+  "common": {
+    "appName": "Система отчетов РА/ПА",
+    "dashboard": "Панель управления",
+    "reportSubmission": "Подача отчета",
+    "allReports": "Все отчеты",
+    "profile": "Профиль",
+    "logout": "Выйти",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "submit": "Отправить",
+    "preview": "Предпросмотр",
+    "search": "Поиск",
+    "actions": "Действия"
+  },
+  "auth": {
+    "login": "Вход",
+    "register": "Регистрация",
+    "forgotPassword": "Забыли пароль",
+    "email": "Эл. почта",
+    "password": "Пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "fullName": "Полное имя",
+    "signIn": "Войти",
+    "signUp": "Зарегистрироваться",
+    "dontHaveAccount": "Нет аккаунта?",
+    "alreadyHaveAccount": "Уже есть аккаунт?"
+  },
+  "dashboard": {
+    "upcomingDeadlines": "Предстоящие сроки отчетов",
+    "recentActivity": "Последние действия",
+    "newReport": "Новый отчет"
+  },
+  "reports": {
+    "title": "Название отчета",
+    "type": "Тип отчета",
+    "status": "Статус",
+    "submissionDate": "Дата подачи",
+    "submittedBy": "Кем подано",
+    "projectName": "Название проекта",
+    "description": "Описание",
+    "period": "Отчетный период",
+    "hours": "Часы",
+    "task": "Задача",
+    "date": "Дата",
+    "addRow": "Добавить строку",
+    "deleteRow": "Удалить строку",
+    "submitReport": "Отправить отчет",
+    "previewReport": "Предпросмотр отчета",
+    "approvalRoute": "Маршрут утверждения",
+    "timeline": "Временная шкала",
+    "filters": {
+      "status": "Статус",
+      "type": "Тип",
+      "startDate": "Начальная дата",
+      "endDate": "Конечная дата",
+      "search": "Поиск отчетов"
+    },
+    "statuses": {
+      "pending": "На рассмотрении",
+      "approved": "Утверждено",
+      "rejected": "Отклонено"
+    }
+  }
+} 
