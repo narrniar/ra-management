@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e0a878bd-1d3d-4948-9d09-d5601fd4eb0e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-postgresql.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/RaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/demo/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/demo/DemoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/demo/ManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/google_drive/Controllers/GoogleDriveController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/google_drive/Dto/Res.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/google_drive/GoogleDriveService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/google_drive/Services/FileService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/dao/FileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/dao/TokenRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/dao/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/FILE/CHILDREN/Contract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/FILE/CHILDREN/Report.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/FILE/File.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/Folder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/TOKEN/Privelege.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/TOKEN/Token.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/TOKEN/TokenType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/services/TokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/persistence/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Authentication/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Authentication/AuthenticationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Authentication/AuthenticationResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Authentication/AuthenticationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Authentication/LogoutService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Configs/ApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Configs/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/CustomUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/Services/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/jwt/CookieAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/jwt/CookieService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/jwt/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/security/jwt/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Controllers/FileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Controllers/ReportController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DTO/FileRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DTO/GetFilesDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DTO/GetProfessorFilesDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DTO/RequestReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DTO/UpdateStatusDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DTO/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/DriveController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Services/reportService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Validation/EmailValidatorImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Validation/PasswordMatches.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Validation/PasswordMatchesValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/Validation/ValidEmail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/errors/EmailAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/errors/RoleNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ra/web/errors/UserAlreadyExistException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/credentials-template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/credentials.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/error.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/http/register.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/report/report-child.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/report/report-child.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/report/report.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/report/report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/subreport/subreport.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/service-account-key-template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/timesnewroman.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/timesnewroman.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/ra/RaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/ra/demo/DemoControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/ra/demo/ManagerControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/ra/persistence/dao/UserRepositoryIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/ra/persistence/services/TokenServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/ra/security/jwt/JwtServiceTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;2a26fa3bbda67c7c99a89867af0d3879821c30c7&quot; value=&quot;###&amp;#10;GET http://localhost:8083/api/v1/demo-controller&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2uoCfWycA0Kd0dFvw8Zja2E7NYv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.register | #4.executor": "Run",
+    "HTTP Request.register | #5.executor": "Run",
+    "HTTP Request.register | #6.executor": "Run",
+    "HTTP Request.register | #7.executor": "Run",
+    "HTTP Request.register | Create a folder.executor": "Run",
+    "HTTP Request.register | Get a file from Google Drive.executor": "Run",
+    "HTTP Request.register | Get all files from Google Drive for PA.executor": "Run",
+    "HTTP Request.register | Get all files from Google Drive.executor": "Run",
+    "HTTP Request.register | Get all pending files from Google Drive for PA.executor": "Run",
+    "HTTP Request.register | Get file for RA.executor": "Run",
+    "HTTP Request.register | Get file for prof.executor": "Run",
+    "HTTP Request.register | Upload a file to Google Drive#1.executor": "Run",
+    "HTTP Request.register | Upload a file to Google Drive#2.executor": "Run",
+    "HTTP Request.register | register RA.executor": "Run",
+    "HTTP Request.register | register admin.executor": "Run",
+    "HTTP Request.register | resgistration user.executor": "Run",
+    "HTTP Request.register | Аутентификация#1.executor": "Run",
+    "HTTP Request.register | Аутентификация#2.executor": "Run",
+    "HTTP Request.register | Аутентификация.executor": "Run",
+    "HTTP Request.register | Обновление токена.executor": "Run",
+    "HTTP Request.register | Регистрация RA.executor": "Run",
+    "HTTP Request.register | Регистрация admin.executor": "Run",
+    "HTTP Request.register | Регистрация пользователя#2.executor": "Run",
+    "HTTP Request.register | Регистрация пользователя.executor": "Run",
+    "JUnit.DemoControllerTest.executor": "Run",
+    "JUnit.DemoControllerTest.sayHello_ShouldReturnHelloMessage.executor": "Run",
+    "JUnit.ManagerControllerTest.executor": "Run",
+    "JUnit.ManagerControllerTest.post_WithAdminRole_ShouldReturnSuccessMessage.executor": "Run",
+    "Maven.RA [clean].executor": "Run",
+    "Maven.RA [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.RaApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IdeaProjects/RA/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.ra.web.Validation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\RA\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\RA\src\main\resources\reports\subreport" />
+      <recent name="D:\IdeaProjects\RA\src\main\resources\reports\report" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.RaApplication">
+    <configuration name="register | Get a file from Google Drive" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/http/register.http" executionIdentifier="Get a file from Google Drive" index="11" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="register | Get all files from Google Drive for PA" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/http/register.http" executionIdentifier="Get all files from Google Drive for PA" index="13" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="register | Get all pending files from Google Drive for PA" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/http/register.http" executionIdentifier="Get all pending files from Google Drive for PA" index="14" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="register | Get file for RA" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/http/register.http" executionIdentifier="Get file for RA" index="15" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="register | Get file for prof" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/http/register.http" executionIdentifier="Get file for prof" index="14" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="DemoControllerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="RA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.ra.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.ra.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.example.ra.demo.DemoControllerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <envs>
+        <env name="SPRING_PROFILES_ACTIVE" value="test" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="RA" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.ra.RaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.register | Get file for RA" />
+        <item itemvalue="HTTP Request.register | Get file for prof" />
+        <item itemvalue="HTTP Request.register | Get all pending files from Google Drive for PA" />
+        <item itemvalue="HTTP Request.register | Get all files from Google Drive for PA" />
+        <item itemvalue="HTTP Request.register | Get a file from Google Drive" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Physical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0a878bd-1d3d-4948-9d09-d5601fd4eb0e" name="Changes" comment="" />
+      <created>1742905646850</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742905646850</updated>
+      <workItem from="1742905648334" duration="6721000" />
+      <workItem from="1743070351180" duration="1171000" />
+      <workItem from="1743584435561" duration="1095000" />
+      <workItem from="1743750437374" duration="979000" />
+      <workItem from="1743752194190" duration="1866000" />
+      <workItem from="1744191746153" duration="7513000" />
+      <workItem from="1744200890872" duration="228000" />
+      <workItem from="1744201135121" duration="1858000" />
+      <workItem from="1744224412199" duration="184000" />
+      <workItem from="1744224760318" duration="828000" />
+      <workItem from="1744226450916" duration="318000" />
+      <workItem from="1744226792505" duration="274000" />
+      <workItem from="1744227233604" duration="11306000" />
+      <workItem from="1744357114987" duration="10647000" />
+      <workItem from="1744828170917" duration="2404000" />
+      <workItem from="1744905851519" duration="12265000" />
+      <workItem from="1744985359188" duration="12204000" />
+      <workItem from="1745137787538" duration="23030000" />
+      <workItem from="1745387162730" duration="4795000" />
+      <workItem from="1745441930474" duration="6915000" />
+      <workItem from="1745512900805" duration="37724000" />
+      <workItem from="1745573876884" duration="16027000" />
+      <workItem from="1745836160288" duration="2641000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="backend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/ra/persistence/dao/FileRepository.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
